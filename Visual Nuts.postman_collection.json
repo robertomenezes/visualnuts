@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "0769328b-6c21-4649-9ee0-2699f3b348de",
+		"name": "Visual Nuts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "upload json languages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/rober/Desktop/languages_countries.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/languages/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "count contries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/languages/count-countries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						"count-countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "most official languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/languages/country-with-the-most-official-languages?country=de",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						"country-with-the-most-official-languages"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/languages/count official languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/languages/how-many-official-languages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						"how-many-official-languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "highest official languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/languages/country-with-the-highest-number-of-official-languages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						"country-with-the-highest-number-of-official-languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "most common official languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/languages/most-common-official-languages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"languages",
+						"most-common-official-languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "print numebers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/printNumebers/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"printNumebers",
+						"100"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
