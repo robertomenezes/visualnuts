@@ -14,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LanguageServiceTest {
 
-    public static final String PATH_FILE = "data/languages_countries.json";
-
     private LanguagesService languagesService;
 
     @BeforeAll

@@ -8,6 +8,7 @@ import com.menezes.visualnuts.exception.BusinessException;
 import com.menezes.visualnuts.languages.dto.Countries;
 import com.menezes.visualnuts.languages.dto.Country;
 import com.menezes.visualnuts.util.Util;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,12 @@ import static com.menezes.visualnuts.util.Util.stringIsNullOrEmpty;
 @Service
 public class LanguagesService {
 
-    public static final String PATH_FILE = "data/languages_countries.json";
-    public static final String CONTRY_WITH_THE_MOST_OFFICIAL_LANGUAGE_WHERE_THEY_SPEAK = "de";
+    @Value("${path_file}")
+    private String pathFile;
+
+    @Value("${contry_with_the_most_official_language_where_they_speak}")
+    private String contryWithTheMostOfficialLanguageWhereTheySpeak;
+
     public List<Country> countries;
 
     @CacheEvict(value = "countries")
@@ -44,12 +49,12 @@ public class LanguagesService {
             return countries;
         }
 
-        if (stringIsNullOrEmpty(PATH_FILE)) {
+        if (stringIsNullOrEmpty(pathFile)) {
             throw new BusinessException(INVALID_PATH);
         }
 
         ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(PATH_FILE);
+        InputStream inputStream = classLoader.getResourceAsStream(pathFile);
         if (inputStream == null) {
             throw new BusinessException("File not found");
         }
@@ -71,7 +76,7 @@ public class LanguagesService {
 
     public AtomicReference<String> printCountryWithTheMostOfficialLanguages(String countryWithTheMostOfficialLanguageWhereTheySpeak) throws Exception {
         if (Util.stringIsNullOrEmpty(countryWithTheMostOfficialLanguageWhereTheySpeak)) {
-            countryWithTheMostOfficialLanguageWhereTheySpeak = CONTRY_WITH_THE_MOST_OFFICIAL_LANGUAGE_WHERE_THEY_SPEAK;
+            countryWithTheMostOfficialLanguageWhereTheySpeak = countryWithTheMostOfficialLanguageWhereTheySpeak;
         }
         List<Country> countries = getCountries();
         AtomicReference<String> mostOfficialLanguage = new AtomicReference<>();
